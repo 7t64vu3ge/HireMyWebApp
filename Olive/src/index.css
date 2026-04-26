@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Neue Plak", "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-inter: "Inter", "Inter Fallback";
+  --font-dm-sans: "DM Sans", "DM Sans Fallback";
+
+  --color-green-100: oklch(96.2% .044 156.743);
+  --color-green-600: oklch(62.7% .194 149.214);
+  --color-green-800: oklch(44.8% .119 151.328);
+
+  --color-olive-primary: #253612;
+  --color-olive-primaryForeground: #fff;
+  --color-olive-secondary: #253612;
+  --color-olive-textMain: #1f3824;
+  --color-olive-textMuted: #1f1f1f99;
+
+  --color-background: oklch(100% 0 0);
+  --color-foreground: oklch(12.9% .042 264.695);
+  --color-border: oklch(92.9% .013 255.508);
+
+  --radius-lg: .625rem;
+  --radius-md: calc(.625rem - 2px);
+  --radius-sm: calc(.625rem - 4px);
+  --radius-xs: .125rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+
+  --animate-scroll: scroll 20s linear infinite;
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-olive-textMain);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
