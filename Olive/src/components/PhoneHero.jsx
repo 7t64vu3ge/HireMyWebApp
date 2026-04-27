@@ -4,7 +4,7 @@ import { Heart, Share } from "lucide-react";
 
 const slides = [
   {
-    image: "/assets/showcase.jpeg",
+    image: "/assets/images/showcase.jpeg",
     thumbnail: { bg: "#3C8C70", label: "HONEY\nMAMA'S" },
     title: "Cacao-nectar Bar, Oregon Peppermint",
     brand: "Honey Mama's",
@@ -47,21 +47,40 @@ const PhoneHero = () => {
 
   const slide = slides[current];
 
+  const prevSlide = slides[(current - 1 + slides.length) % slides.length];
+  const nextSlide = slides[(current + 1) % slides.length];
+
   return (
     <div className="relative w-full min-h-[700px] flex items-center justify-center bg-transparent py-10 overflow-hidden">
 
       {/* ── Symmetrical Background Carousel ── */}
       <div className="absolute top-1/2 -translate-y-[80%] left-1/2 -translate-x-1/2 w-full max-w-[900px] flex justify-between items-center z-10 pointer-events-none px-4 md:px-0">
         {/* Far Left */}
-        <div className="hidden md:block w-[140px] h-[140px] rounded-[32px] bg-yellow-50/60 backdrop-blur-md opacity-40 shadow-sm transform -translate-x-8 scale-90" />
+        <div className="hidden md:block w-[140px] h-[140px] rounded-[32px] backdrop-blur-md opacity-40 shadow-sm transform -translate-x-8 scale-90 overflow-hidden relative bg-white/50">
+           <AnimatePresence>
+             <motion.img key={current} src={prevSlide.image} alt="" initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 0.6 }} exit={{ x: -100, opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay" />
+           </AnimatePresence>
+        </div>
         {/* Mid Left */}
-        <div className="w-[120px] md:w-[160px] h-[120px] md:h-[160px] rounded-[32px] bg-red-50/70 backdrop-blur-md opacity-60 shadow-md transform translate-x-4 md:translate-x-12 scale-95" />
+        <div className="w-[120px] md:w-[160px] h-[120px] md:h-[160px] rounded-[32px] backdrop-blur-md opacity-60 shadow-md transform translate-x-4 md:translate-x-12 scale-95 overflow-hidden relative bg-white/50">
+           <AnimatePresence>
+             <motion.img key={current} src={prevSlide.image} alt="" initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 0.8 }} exit={{ x: -100, opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay" />
+           </AnimatePresence>
+        </div>
         {/* Spacer for Phone */}
         <div className="w-[320px] hidden md:block" />
         {/* Mid Right */}
-        <div className="w-[120px] md:w-[160px] h-[120px] md:h-[160px] rounded-[32px] bg-orange-50/70 backdrop-blur-md opacity-60 shadow-md transform -translate-x-4 md:-translate-x-12 scale-95" />
+        <div className="w-[120px] md:w-[160px] h-[120px] md:h-[160px] rounded-[32px] backdrop-blur-md opacity-60 shadow-md transform -translate-x-4 md:-translate-x-12 scale-95 overflow-hidden relative bg-white/50">
+           <AnimatePresence>
+             <motion.img key={current} src={nextSlide.image} alt="" initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 0.8 }} exit={{ x: -100, opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay" />
+           </AnimatePresence>
+        </div>
         {/* Far Right */}
-        <div className="hidden md:block w-[140px] h-[140px] rounded-[32px] bg-green-50/60 backdrop-blur-md opacity-40 shadow-sm transform translate-x-8 scale-90" />
+        <div className="hidden md:block w-[140px] h-[140px] rounded-[32px] backdrop-blur-md opacity-40 shadow-sm transform translate-x-8 scale-90 overflow-hidden relative bg-white/50">
+           <AnimatePresence>
+             <motion.img key={current} src={nextSlide.image} alt="" initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 0.6 }} exit={{ x: -100, opacity: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }} className="absolute inset-0 w-full h-full object-cover mix-blend-overlay" />
+           </AnimatePresence>
+        </div>
       </div>
 
       {/* ── Main Phone Mockup ── */}
@@ -85,8 +104,8 @@ const PhoneHero = () => {
           </div>
 
           {/* ── Top Image Carousel ── */}
-          <div className="w-full h-[240px] relative flex-shrink-0 overflow-hidden">
-            <AnimatePresence mode="wait">
+          <div className="w-full h-[240px] relative flex-shrink-0 overflow-hidden bg-gray-50">
+            <AnimatePresence>
               <motion.img
                 key={current}
                 src={slide.image}

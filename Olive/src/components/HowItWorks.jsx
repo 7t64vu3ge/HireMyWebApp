@@ -17,7 +17,7 @@ export default function HowItWorks() {
       <div className="grid grid-cols-1 md:grid-cols-3 pt-8 md:pt-24 gap-6 w-full px-4 md:px-0">
         
         {/* Step 1: Scan & Detect */}
-        <AnimatedCard delay={0.1} className="w-full mx-auto p-8 rounded-[14px] bg-[#F5FAF6] group">
+        <AnimatedCard delay={0.1} className="w-full mx-auto p-8 rounded-[14px] bg-[#F5FAF6] border border-gray-200 group">
           <ScanDetectIllustration />
           <h3 className="text-base font-semibold text-[#273522] mb-2">
             {steps[0].title}
@@ -28,7 +28,7 @@ export default function HowItWorks() {
         </AnimatedCard>
 
         {/* Step 2: Data Analysis & Validation */}
-        <AnimatedCard delay={0.2} className="w-full mx-auto p-8 rounded-[14px] bg-[#F5FAF6]">
+        <AnimatedCard delay={0.2} className="w-full mx-auto p-8 rounded-[14px] bg-[#F5FAF6] border border-gray-200">
           <DataAnalysisIllustration />
           <h3 className="text-base font-semibold text-[#273522] mb-2">
             {steps[1].title}
@@ -39,7 +39,7 @@ export default function HowItWorks() {
         </AnimatedCard>
 
         {/* Step 3: Actionable Insights */}
-        <AnimatedCard delay={0.3} className="w-full mx-auto p-8 rounded-[14px] bg-[#F5FAF6]">
+        <AnimatedCard delay={0.3} className="w-full mx-auto p-8 rounded-[14px] bg-[#F5FAF6] border border-gray-200">
           <InsightsIllustration items={insightItems} />
           <h3 className="text-base font-semibold text-[#273522] mb-2">
             {steps[2].title}
@@ -100,8 +100,8 @@ function DataAnalysisIllustration() {
       {/* Background Carousel */}
       <div className="absolute inset-0 flex items-center justify-center opacity-40">
         <div className="flex gap-4 animate-scroll w-[200%]">
-          {[1, 2, 3, 4, 5, 6].map(i => (
-            <div key={i} className="w-20 h-20 bg-gray-200 rounded-xl flex-shrink-0" />
+          {['/assets/ice-cream.png', '/assets/sea-salt.png', '/assets/spaghetti-squash.png', '/assets/ice-cream.png', '/assets/sea-salt.png', '/assets/spaghetti-squash.png'].map((src, i) => (
+            <img key={i} src={src} alt="Product preview" className="w-20 h-20 bg-gray-100 object-cover rounded-xl flex-shrink-0 border border-gray-200 shadow-sm" />
           ))}
         </div>
       </div>
