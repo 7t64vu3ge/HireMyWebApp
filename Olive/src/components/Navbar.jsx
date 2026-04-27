@@ -2,30 +2,23 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import logo from "../assets/logo.svg";
+import { menuItems } from "../data/navigation";
 
 const Navbar = () => {
   const [hoveredMenu, setHoveredMenu] = useState(null);
 
-  const menuItems = [
-    { name: "Solutions", hasDropdown: true },
-    { name: "Features", hasDropdown: false },
-    { name: "Pricing", hasDropdown: false },
-    { name: "Blog", hasDropdown: true },
-    { name: "Restaurants", hasDropdown: false },
-    { name: "Food", hasDropdown: true },
-  ];
-
   return (
-    <header className="relative z-[60] flex w-full flex-row items-center justify-between px-6 md:px-12 py-5">
-      <nav className="flex items-center justify-between w-full">
+    <header className="relative z-[60] flex w-full flex-row items-center justify-between px-6 md:px-5 py-5">
+      <nav className="flex items-center justify-between w-full" aria-label="Main Navigation">
 
         <div className="flex items-center">
-          <a href="/" className="relative z-20 flex items-center  space-x-2 transition-opacity hover:opacity-80">
-            <div className="w-[200px] md:w-[200px] ">
-              <img src={logo} alt="Olive" className="w-full  object-contain" />
+          <a href="/" className="relative z-20 flex items-center space-x-2 transition-opacity hover:opacity-80">
+            <div className="w-[240px] md:w-[260px]">
+              <img src={logo} alt="Olive" className="w-full object-contain" />
             </div>
           </a>
         </div>
+
         <div className="hidden lg:flex items-center gap-2">
           {menuItems.map((item) => (
             <div
@@ -88,7 +81,7 @@ const Navbar = () => {
           <button className="hidden md:block text-base font-semibold text-[#1F3824] px-4 py-2 hover:opacity-70 transition-opacity">
             Sign in
           </button>
-          <button className=" flex items-center  bg-[#1A3622] text-white text-base font-semibold px-8 py-3.5 rounded-full hover:bg-[#2B5034] transition-all shadow-sm">
+          <button className="flex items-center bg-[#1A3622] text-white text-base font-semibold px-8 py-3.5 rounded-full hover:bg-[#2B5034] transition-all shadow-sm">
             Get Olive
             <ArrowRight size={15} className="ml-2" />
           </button>

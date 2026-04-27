@@ -1,12 +1,9 @@
-import React from "react";
 import { motion } from "framer-motion";
+import AnimatedCard from "./ui/AnimatedCard";
+import { sectionHeader, benefits } from "../data/healthBenefits";
+import { filterTags } from "../data/howItWorks";
 
 export default function HealthBenefits() {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0 }
-  };
-
   return (
     <section className="relative bg-[#F5FAF6]">
       {/* Green Box Section */}
@@ -20,17 +17,15 @@ export default function HealthBenefits() {
         >
           {/* Heading Area */}
           <div className="flex relative text-primary items-center justify-center">
-            <h2 className="font-semibold max-w-xl text-2xl md:text-[3.2rem] text-white leading-tight">
-              Health Benefits of Using Olive
+            <h2 className="max-w-xl text-2xl md:text-[3.2rem] text-white leading-tight">
+              {sectionHeader.title}
             </h2>
           </div>
 
           {/* Description & Action */}
           <div className="flex gap-6 flex-col">
             <div className="max-w-sm md:text-xl text-sm text-[#F5FAF6]">
-              Olive proactively flags harmful ingredients and offers
-              personalized recommendations, empowering you to make better
-              choices for your family's health.
+              {sectionHeader.description}
             </div>
             <div className="flex items-center gap-4">
               <a
@@ -56,82 +51,56 @@ export default function HealthBenefits() {
 
       {/* Overlapping Cards Section */}
       <div className="-mt-24 flex flex-col px-4 md:px-8 pb-24 gap-8">
-        {/* Feature Card 1 */}
-        <motion.div 
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="p-4 bg-white max-w-5xl mx-auto rounded-3xl grid grid-cols-1 lg:grid-cols-2 shadow-sm border border-gray-100"
-        >
-          <div className="p-8 flex flex-col justify-center">
-            <h3 className="text-2xl font-bold mb-4 text-gray-900">
-              Achieve Nutritional Clarity
-            </h3>
-            <p className="text-gray-600 leading-relaxed">
-              Olive breaks down every ingredient so you know exactly what you're
-              eating and how it impacts your long-term health goals.
-            </p>
-          </div>
-          <div className="bg-gray-50 rounded-2xl overflow-hidden min-h-[300px] flex items-center justify-center">
-            <img src="/assets/images/cta.png" alt="Feature Preview" className="w-full h-full object-cover" />
-          </div>
-        </motion.div>
-
-        {/* Feature Card 2 */}
-        <motion.div 
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="p-4 bg-white max-w-5xl mx-auto rounded-3xl grid grid-cols-1 lg:grid-cols-2 shadow-sm border border-gray-100"
-        >
-          <div className="p-8 flex flex-col justify-center">
-            <h3 className="text-2xl font-bold mb-4 text-gray-900">
-              Proactive Ingredient Filtering
-            </h3>
-            <p className="text-gray-600 leading-relaxed">
-              Instantly identify hidden sugars, synthetic dyes, and harmful
-              additives before they reach your shopping cart.
-            </p>
-          </div>
-          <div className="bg-gray-50 rounded-2xl overflow-hidden min-h-[300px] flex items-center justify-center relative overflow-hidden">
-            {/* Animated Horizontal Track */}
-            <div className="absolute inset-0 flex items-center bg-gray-50 overflow-hidden opacity-50">
-               <motion.div 
-                 animate={{ x: ["0%", "-50%"] }} 
-                 transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
-                 className="flex gap-4 whitespace-nowrap pl-4"
-               >
-                 {["High Fibre", "No MSG", "Low PFAS", "No Seed Oils", "High Fibre", "No MSG", "Low PFAS", "No Seed Oils"].map((tag, i) => (
-                   <span key={i} className="bg-white px-4 py-2 rounded-full border border-gray-200 text-sm font-semibold text-gray-600 shadow-sm">{tag}</span>
-                 ))}
-               </motion.div>
+        {benefits.map((benefit, idx) => (
+          <AnimatedCard
+            key={benefit.id}
+            delay={0.1 * (idx + 1)}
+            className="p-4 bg-white max-w-5xl mx-auto rounded-3xl grid grid-cols-1 lg:grid-cols-2 shadow-sm border border-gray-100"
+          >
+            <div className="p-8 flex flex-col justify-center">
+              <h3 className="text-2xl mb-4 text-gray-900">
+                {benefit.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {benefit.description}
+              </p>
             </div>
-            <img src="/assets/images/showcase.jpeg" alt="Feature Preview" className="w-full h-full object-cover relative z-10 opacity-20" />
-          </div>
-        </motion.div>
 
-        {/* Feature Card 3 */}
-        <motion.div 
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="p-4 bg-white max-w-5xl mx-auto rounded-3xl grid grid-cols-1 lg:grid-cols-2 shadow-sm border border-gray-100"
-        >
-          <div className="p-8 flex flex-col justify-center">
-            <h3 className="text-2xl font-bold mb-4 text-gray-900">
-              Real Health Outcomes for Your Family
-            </h3>
-            <p className="text-gray-600 leading-relaxed">
-              Empowers parents to feel more in control of their family's health, delivering personalized suggestions and promoting long-term well-being through informed, balanced decisions.
-            </p>
-          </div>
-        </motion.div>
+            {benefit.id === "clarity" && (
+              <div className="bg-gray-50 rounded-2xl overflow-hidden min-h-[300px] flex items-center justify-center">
+                <img
+                  src={benefit.image}
+                  alt={benefit.imageAlt}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            )}
+
+            {benefit.id === "filtering" && (
+              <div className="bg-gray-50 rounded-2xl overflow-hidden min-h-[300px] flex items-center justify-center relative">
+                {/* Animated Horizontal Track */}
+                <div className="absolute inset-0 flex items-center bg-gray-50 overflow-hidden opacity-50">
+                  <motion.div 
+                    animate={{ x: ["0%", "-50%"] }} 
+                    transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+                    className="flex gap-4 whitespace-nowrap pl-4"
+                  >
+                    {[...filterTags, ...filterTags].map((tag, i) => (
+                      <span key={i} className="bg-white px-4 py-2 rounded-full border border-gray-200 text-sm font-semibold text-gray-600 shadow-sm">{tag}</span>
+                    ))}
+                  </motion.div>
+                </div>
+                <img
+                  src={benefit.image}
+                  alt={benefit.imageAlt}
+                  className="w-full h-full object-cover relative z-10 opacity-20"
+                  loading="lazy"
+                />
+              </div>
+            )}
+          </AnimatedCard>
+        ))}
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-import React from "react";
 import { Star, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -80,7 +79,7 @@ export default function Testimonials() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <h2 className="text-5xl md:text-6xl font-bold text-[#1F3824] leading-tight mb-8">
+              <h2 className="text-5xl md:text-6xl text-[#1F3824] leading-tight mb-8">
                 Real Mothers<br />Real Results
               </h2>
 

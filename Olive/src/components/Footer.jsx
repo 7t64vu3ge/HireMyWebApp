@@ -1,4 +1,23 @@
-import React from "react";
+const exploreLinks = [
+  { label: "Explore Foods", href: "#" },
+  { label: "Allergy Scanner App", href: "#" },
+  { label: "Gluten Free Scanner", href: "#" },
+  { label: "Dairy Free App", href: "#" },
+  { label: "Food Ingredient Checker", href: "#" },
+];
+
+const aboutLinks = [
+  { label: "Blog", href: "#" },
+  { label: "Email us", href: "#" },
+  { label: "Contact us", href: "#" },
+];
+
+const legalLinks = [
+  { label: "Terms of Service", href: "#" },
+  { label: "Privacy Policy", href: "#" },
+  { label: "Refund Policy", href: "#" },
+  { label: "Medical Consent", href: "#" },
+];
 
 export default function Footer() {
   return (
@@ -6,7 +25,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">Keep your family safe with Olive</h3>
+            <h3 className="text-2xl mb-4">Keep your family safe with Olive</h3>
             <ul className="space-y-2 mb-8 text-white/80">
               <li className="flex items-center gap-2">✓ Effortless food scanning</li>
               <li className="flex items-center gap-2">✓ Peace of mind for parents</li>
@@ -20,20 +39,22 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-lg">Explore</h4>
             <ul className="space-y-3 text-white/70">
-              <li><a href="#" className="hover:text-white transition-colors">Explore Foods</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Allergy Scanner App</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Gluten Free Scanner</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Dairy Free App</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Food Ingredient Checker</a></li>
+              {exploreLinks.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="hover:text-white transition-colors">{link.label}</a>
+                </li>
+              ))}
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4 text-lg">About</h4>
             <ul className="space-y-3 text-white/70 mb-8">
-              <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Email us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contact us</a></li>
+              {aboutLinks.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="hover:text-white transition-colors">{link.label}</a>
+                </li>
+              ))}
             </ul>
             
             <p className="text-sm text-white/60 mb-2">Get the latest lab testing data sent directly to your inbox.</p>
@@ -48,10 +69,9 @@ export default function Footer() {
         
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/50">
           <div className="flex items-center gap-4 flex-wrap justify-center">
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Refund Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Medical Consent</a>
+            {legalLinks.map((link) => (
+              <a key={link.label} href={link.href} className="hover:text-white transition-colors">{link.label}</a>
+            ))}
           </div>
           <p>© 2026 Olive Inc.</p>
         </div>

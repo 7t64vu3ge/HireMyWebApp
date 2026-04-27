@@ -1,23 +1,18 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Apple } from "lucide-react";
-import logo from "../assets/logo.svg";
+import { motion } from "framer-motion";
 
 export default function Hero() {
-  const [hoveredMenu, setHoveredMenu] = useState(null);
-
   return (
     <div className="flex flex-col w-full">
       <main className="w-full max-w-5xl mx-auto flex flex-col items-center text-center px-4 md:px-6 mt-6 md:mt-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100 mb-8"
+          className="flex items-center gap-2 mb-8"
         >
           <div className="flex -space-x-2">
-            <div className="w-6 h-6 rounded-full bg-gray-300 border-2 border-white"></div>
-            <div className="w-6 h-6 rounded-full bg-gray-400 border-2 border-white"></div>
-            <div className="w-6 h-6 rounded-full bg-gray-500 border-2 border-white"></div>
+            <img src="/avatar-1.jpg" alt="" className="w-7 h-7 rounded-full border-2 border-[#F5FAF6] object-cover" />
+            <img src="/avatar-2.jpg" alt="" className="w-7 h-7 rounded-full border-2 border-[#F5FAF6] object-cover" />
+            <img src="/avatar-3.jpg" alt="" className="w-7 h-7 rounded-full border-2 border-[#F5FAF6] object-cover" />
           </div>
           <span className="text-xs font-medium text-gray-600">
             Trusted by thousands of healthy families
@@ -28,7 +23,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-6xl md:text-[5.5rem] lg:text-[6.5rem] font-bold tracking-tight text-[#1A3622] mb-6 leading-[1.05]"
+          className="text-6xl md:text-[5.5rem] lg:text-[6.5rem] tracking-tight text-[#1A3622] mb-6 leading-[1.05]"
         >
           The Safest Way to <br /> Shop for Groceries
         </motion.h1>
