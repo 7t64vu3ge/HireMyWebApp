@@ -21,24 +21,15 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A3622] text-white pt-24 pb-12 px-4 border-t border-white/10">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl mb-4">Keep your family safe with Olive</h3>
-            <ul className="space-y-2 mb-8 text-white/80">
-              <li className="flex items-center gap-2">✓ Effortless food scanning</li>
-              <li className="flex items-center gap-2">✓ Peace of mind for parents</li>
-              <li className="flex items-center gap-2">✓ Healthy product recommendations</li>
-            </ul>
-            <button className="bg-white text-[#1A3622] px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors">
-              Download for iOS
-            </button>
-          </div>
+    <footer className="px-4 py-8 md:px-8 max-w-7xl mx-auto w-full mb-12">
+      <div className="bg-[#386641] text-white rounded-[40px] pt-16 md:pt-20 pb-10 px-8 md:px-16 lg:px-24">
+        
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           
-          <div>
-            <h4 className="font-semibold mb-4 text-lg">Explore</h4>
-            <ul className="space-y-3 text-white/70">
+          {/* Explore Links */}
+          <div className="md:col-span-4">
+            <h4 className="text-[16px] font-medium mb-6">Explore More Olive Tools</h4>
+            <ul className="space-y-4 text-white/70 text-[14px]">
               {exploreLinks.map((link) => (
                 <li key={link.label}>
                   <a href={link.href} className="hover:text-white transition-colors">{link.label}</a>
@@ -47,33 +38,59 @@ export default function Footer() {
             </ul>
           </div>
           
-          <div>
-            <h4 className="font-semibold mb-4 text-lg">About</h4>
-            <ul className="space-y-3 text-white/70 mb-8">
+          {/* About Links */}
+          <div className="md:col-span-3">
+            <h4 className="text-[16px] font-medium mb-6">About</h4>
+            <ul className="space-y-4 text-white/70 text-[14px]">
               {aboutLinks.map((link) => (
                 <li key={link.label}>
                   <a href={link.href} className="hover:text-white transition-colors">{link.label}</a>
                 </li>
               ))}
             </ul>
-            
-            <p className="text-sm text-white/60 mb-2">Get the latest lab testing data sent directly to your inbox.</p>
-            <div className="flex gap-2">
-              <input type="email" placeholder="Email address" className="bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm w-full outline-none focus:border-white/50" />
-              <button className="bg-[#386641] text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#4a8055] transition-colors">
-                Subscribe
-              </button>
+          </div>
+
+          {/* Newsletter Section */}
+          <div className="md:col-span-5 flex flex-col md:items-end">
+            <div className="w-full md:max-w-sm">
+              <div className="mb-4">
+                <div className="flex items-center gap-1 font-extrabold text-[40px] tracking-tight text-[#B1C355]">
+                  <div className="w-8 h-8 rounded-full overflow-hidden mr-1 mt-2">
+                    <img src="/src/assets/hero.png" alt="" className="w-full h-full object-cover" />
+                  </div>
+                  live
+                </div>
+              </div>
+              <p className="text-[14px] text-white/80 mb-6 leading-relaxed">
+                Get the latest lab testing data<br />sent directly to your inbox.
+              </p>
+              <div className="flex items-center gap-3 w-full">
+                <input 
+                  type="email" 
+                  placeholder="Enter Email address" 
+                  className="bg-white/10 border border-white/10 text-white placeholder-white/50 px-5 py-3 rounded-[20px] outline-none focus:border-white/30 transition-colors flex-1 text-[14px]"
+                />
+                <button className="bg-white text-[#2E4A35] px-6 py-3 rounded-[20px] font-bold hover:bg-gray-100 transition-colors flex-shrink-0 text-[14px]">
+                  Subscribe
+                </button>
+              </div>
             </div>
           </div>
         </div>
-        
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/50">
-          <div className="flex items-center gap-4 flex-wrap justify-center">
+
+        {/* Bottom Bar */}
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-wrap items-center gap-6 text-[13px] text-white/70">
             {legalLinks.map((link) => (
-              <a key={link.label} href={link.href} className="hover:text-white transition-colors">{link.label}</a>
+              <a key={link.label} href={link.href} className="hover:text-white transition-colors">
+                {link.label}
+              </a>
             ))}
+            <a href="#" className="hover:text-white transition-colors">Sign in</a>
           </div>
-          <p>© 2026 Olive Inc.</p>
+          <div className="text-[13px] text-white/70">
+            © 2026 Olive Inc.
+          </div>
         </div>
       </div>
     </footer>

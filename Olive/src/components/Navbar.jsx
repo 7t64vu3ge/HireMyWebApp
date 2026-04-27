@@ -29,7 +29,7 @@ const Navbar = () => {
             >
               <a
                 href="#"
-                className={`flex items-center gap-2 px-5 py-2.5 text-base font-semibold transition-all rounded-full
+                className={`flex items-center gap-2 px-5 py-2.5 text-[15px] font-semibold transition-all rounded-full
                   ${hoveredMenu === item.name ? "text-[#1F3824] bg-black/5" : "text-[#1F3824] hover:bg-black/5"}
                 `}
               >

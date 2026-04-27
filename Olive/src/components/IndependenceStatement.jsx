@@ -1,17 +1,35 @@
-import SectionHeading from "./ui/SectionHeading";
+import { motion } from "framer-motion";
 
 export default function IndependenceStatement() {
   return (
-    <section className="bg-white py-24 px-4 text-center">
-      <div className="max-w-4xl mx-auto">
-        <SectionHeading
-          className="text-4xl md:text-5xl lg:text-6xl text-[#1F3824] mb-6 tracking-tight"
+    <section className="bg-white py-24 md:py-32 px-4 md:px-12 w-full">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 md:gap-20">
+        
+        {/* Left Side: Huge Pink Text */}
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="md:w-3/5"
         >
-          100% Independent.<br />Always.
-        </SectionHeading>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto font-medium">
-          We never monetize through brand deals, affiliate links, or ads — so you can trust our recommendations are always aligned with our users.
-        </p>
+          <h2 className="text-[60px] md:text-[90px] lg:text-[110px] leading-[0.9] font-bold text-[#FFA8BA] tracking-tight">
+            100% Independent.<br />
+            Always.
+          </h2>
+        </motion.div>
+
+        {/* Right Side: Description */}
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="md:w-2/5"
+        >
+          <p className="text-[20px] md:text-[24px] lg:text-[26px] leading-[1.4] text-[#2E4A35] font-bold tracking-tight">
+            We <span className="text-[#A3B83F]">never monetize</span> through brand deals, affiliate links, or ads — so <span className="text-[#A3B83F]">you can trust our recommendations</span> are always aligned with our users.
+          </p>
+        </motion.div>
+        
       </div>
     </section>
   );

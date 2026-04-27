@@ -7,8 +7,12 @@ import Navbar from "./components/Navbar";
 const HowItWorks = lazy(() => import("./components/HowItWorks"));
 const HealthBenefits = lazy(() => import("./components/HealthBenefits"));
 const Testimonials = lazy(() => import("./components/Testimonials"));
+const Comparison = lazy(() => import("./components/Comparison"));
 const IndependenceStatement = lazy(() => import("./components/IndependenceStatement"));
 const Pricing = lazy(() => import("./components/Pricing"));
+const FirstCTA = lazy(() => import("./components/FirstCTA"));
+const FAQ = lazy(() => import("./components/FAQ"));
+const FinalCTA = lazy(() => import("./components/FinalCTA"));
 const Footer = lazy(() => import("./components/Footer"));
 
 function App() {
@@ -28,8 +32,12 @@ function App() {
         <HowItWorks />
         <HealthBenefits />
         <Testimonials />
-        <IndependenceStatement />
+        <Comparison />
         <Pricing />
+        <FirstCTA />
+        <IndependenceStatement />
+        <FAQ />
+        <FinalCTA />
         <Footer />
       </Suspense>
     </div>
