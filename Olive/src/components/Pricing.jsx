@@ -1,12 +1,12 @@
 import AnimatedCard from "./ui/AnimatedCard";
 import CheckItem from "./ui/CheckItem";
 import { plans } from "../data/pricing";
-
+import backgroundSvg from "../assets/background.svg";
 export default function Pricing() {
   return (
     <section className="py-24 bg-white px-4 relative overflow-hidden">
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-20 translate-x-[20%]">
-        <img src="/src/assets/background.svg" alt="" className="w-full h-full object-contain" />
+        <img src={backgroundSvg} alt="" className="w-full h-full object-contain" />
       </div>
 
       <div className="max-w-[1000px] mx-auto flex flex-col items-center relative z-10">
@@ -15,7 +15,7 @@ export default function Pricing() {
           Honest Pricing
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full items-end">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full items-stretch">
           {plans.map((plan, idx) => (
             <PricingCard key={plan.id} plan={plan} delay={0.1 * (idx + 1)} />
           ))}
@@ -31,15 +31,15 @@ function PricingCard({ plan, delay }) {
   return (
     <AnimatedCard
       delay={delay}
-      className={`rounded-[32px] p-8 md:p-10 flex flex-col relative overflow-visible ${
+      className={`rounded-[32px] p-8 md:p-10 flex flex-col relative overflow-visible h-full ${
         isDark
-          ? "bg-[#386641] text-white shadow-xl min-h-[460px]"
-          : "bg-[#F5FAF6] text-[#1F3824] shadow-sm min-h-[420px]"
+          ? "bg-[#386641] text-white shadow-xl"
+          : "bg-[#F5FAF6] text-[#1F3824] shadow-sm"
       }`}
     >
       {!isDark && (
-        <div className="absolute -top-12 -left-6 w-24 h-24 rotate-[-10deg]">
-          <img src="/src/assets/hero.png" alt="Mascot" className="w-full h-full object-contain" />
+        <div className="absolute -top-16 -left-8 w-28 h-28 rotate-[-10deg]">
+          <img src="/assets/logo.png" alt="Mascot" className="w-full h-full object-contain drop-shadow-md" />
         </div>
       )}
       

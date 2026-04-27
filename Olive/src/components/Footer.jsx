@@ -1,3 +1,5 @@
+import logoSvg from "../assets/logo.svg";
+
 const exploreLinks = [
   { label: "Explore Foods", href: "#" },
   { label: "Allergy Scanner App", href: "#" },
@@ -53,13 +55,8 @@ export default function Footer() {
           {/* Newsletter Section */}
           <div className="md:col-span-5 flex flex-col md:items-end">
             <div className="w-full md:max-w-sm">
-              <div className="mb-4">
-                <div className="flex items-center gap-1 font-extrabold text-[40px] tracking-tight text-[#B1C355]">
-                  <div className="w-8 h-8 rounded-full overflow-hidden mr-1 mt-2">
-                    <img src="/src/assets/hero.png" alt="" className="w-full h-full object-cover" />
-                  </div>
-                  live
-                </div>
+              <div className="mb-8">
+                <img src={logoSvg} alt="Olive" className="h-12 w-auto" />
               </div>
               <p className="text-[14px] text-white/80 mb-6 leading-relaxed">
                 Get the latest lab testing data<br />sent directly to your inbox.

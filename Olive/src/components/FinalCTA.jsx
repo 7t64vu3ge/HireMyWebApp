@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Apple } from "lucide-react";
+import { Check } from "lucide-react";
 
 export default function FinalCTA() {
   return (
@@ -71,7 +71,7 @@ export default function FinalCTA() {
             transition={{ delay: 0.2 }}
             className="bg-white text-[#2E4A35] px-8 py-4 rounded-full font-bold text-[16px] inline-flex items-center gap-2 hover:bg-opacity-90 transition-all shadow-md hover:scale-[1.02]"
           >
-            <Apple size={20} />
+            <span className="text-[20px]">🫒</span>
             Download for iOS
           </motion.button>
         </div>

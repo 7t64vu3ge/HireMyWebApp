@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, Apple } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
@@ -47,11 +47,11 @@ export default function FAQ() {
           </h2>
           
           <div className="absolute right-0 top-0 md:-right-8 md:top-4 w-16 md:w-20 hidden sm:block animate-[bounce_3s_ease-in-out_infinite]">
-            <img src="/src/assets/hero.png" alt="Thumbs Up Mascot" className="w-full h-auto" />
+            <img src="/assets/logo.png" alt="Thumbs Up Mascot" className="w-full h-auto drop-shadow-md" />
           </div>
 
           <button className="bg-[#2E4A35] text-white px-8 py-3.5 rounded-full text-sm font-semibold inline-flex items-center gap-2 hover:bg-[#1A3622] transition-colors shadow-sm">
-            <Apple size={18} />
+            <span className="text-[18px]">🫒</span>
             Download for iOS
           </button>
         </div>
